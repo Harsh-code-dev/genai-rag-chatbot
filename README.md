@@ -1,35 +1,157 @@
-# AI Knowledge Assistant (RAG Chatbot)
+# 📚 AI Knowledge Assistant (RAG Chatbot)
 
-## Overview
-A Retrieval-Augmented Generation (RAG) based chatbot that answers questions from custom documents using Large Language Models (LLMs).
+## 📖 Overview
 
-## Features
-- Upload documents (PDF/Text)
-- Semantic search using embeddings
-- Context-aware answers using LLM
-- Fast and scalable document retrieval
+AI Knowledge Assistant is a Retrieval-Augmented Generation (RAG) chatbot that answers questions from PDF documents using semantic search and Large Language Models (LLMs).
 
-## Tech Stack
-- Python
-- LangChain
-- FAISS (Vector Database)
-- OpenAI API
+The application extracts text from PDF files, splits it into chunks, generates OpenAI embeddings, stores them in **Qdrant**, and retrieves the most relevant context before generating accurate responses.
 
-## How it works
-1. Documents are split into smaller chunks  
-2. Each chunk is converted into embeddings  
-3. Relevant chunks are retrieved using similarity search  
-4. LLM generates accurate answers based on context  
+---
 
-## Use Cases
-- Document Q&A system  
-- Knowledge base assistant  
-- Research assistant  
+## ✨ Features
 
-## Demo
-(Add screenshot here later)
+* 📄 PDF document ingestion
+* ✂️ Intelligent document chunking
+* 🔍 Semantic similarity search
+* 🧠 OpenAI embedding generation
+* 💬 Context-aware question answering
+* ⚡ Fast retrieval using Qdrant
+* 🐳 Dockerized vector database
 
-## Future Improvements
-- Add UI (Streamlit / React)
-- Support multiple file formats
-- Improve response accuracy
+---
+
+## 🛠 Tech Stack
+
+| Category         | Technologies           |
+| ---------------- | ---------------------- |
+| Language         | Python                 |
+| AI Framework     | LangChain              |
+| LLM              | OpenAI GPT             |
+| Embeddings       | text-embedding-3-large |
+| Vector Database  | Qdrant                 |
+| PDF Loader       | PyPDF                  |
+| Containerization | Docker                 |
+
+---
+
+## 🏗 RAG Pipeline
+
+```text
+PDF
+ │
+ ▼
+Load Document
+ │
+ ▼
+Split into Chunks
+ │
+ ▼
+Generate OpenAI Embeddings
+ │
+ ▼
+Store in Qdrant
+ │
+ ▼
+User Question
+ │
+ ▼
+Semantic Search
+ │
+ ▼
+Relevant Chunks
+ │
+ ▼
+OpenAI GPT
+ │
+ ▼
+Answer
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+genai-rag-chatbot/
+│── chat.py
+│── index.py
+│── nodejs.pdf
+│── docker-compose.yml
+│── requirements.txt
+│── .env.example
+│── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Harsh-code-dev/genai-rag-chatbot.git
+cd genai-rag-chatbot
+```
+
+### Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### Activate the environment (Windows)
+
+```bash
+venv\Scripts\activate
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure environment variables
+
+Create a `.env` file.
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+```
+
+### Start Qdrant
+
+```bash
+docker compose up -d
+```
+
+### Index the PDF
+
+```bash
+python index.py
+```
+
+### Start chatting
+
+```bash
+python chat.py
+```
+
+---
+
+## 🚀 Future Improvements
+
+* Support multiple PDF documents
+* Chat history
+* Web interface
+* Streaming responses
+* Citation support
+* Conversation memory
+
+---
+
+## 👨‍💻 Author
+
+**Harsh Kumar**
+
+GitHub: https://github.com/Harsh-code-dev
